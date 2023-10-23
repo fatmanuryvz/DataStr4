@@ -1,0 +1,29 @@
+package dataex4;
+
+/**
+ *
+ * @author Fatmanur
+ */
+public class DataEx4 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        OneDimensionList OdList = new OneDimensionList();
+        OdList.addHead(40);
+        OdList.addHead(30);
+        OdList.addHead(20);
+        OdList.addTail(70);
+        OdList.addTail(90);
+        OdList.addBetween(3, 55);
+        OdList.addBetween(6, 100);
+        OdList.addBetween(0, 10); //başa eklediğimiz için head kendini güncelleyecek!
+
+    
+     
+         OdList.print();
+       
+    }
+
+}

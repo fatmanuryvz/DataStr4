@@ -1,0 +1,12 @@
+
+package dataex4;
+
+/**
+ *
+ * @author Fatmanur
+ */
+public class Node4 {
+    int data ;
+    Node4 next;
+    
+}

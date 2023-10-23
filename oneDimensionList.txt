@@ -1,0 +1,107 @@
+package dataex4;
+
+/**
+ *
+ * @author Fatmanur
+ */
+public class OneDimensionList {
+
+    Node4 head = null;
+    Node4 tail = null;
+
+    public void addHead(int x) {
+        Node4 newNum = new Node4();
+        newNum.data = x;
+
+        if (head == null) {
+            newNum.next = null;
+            head = newNum;
+            tail = newNum;
+            System.out.println("create list and added  number in head");
+        } else {
+            newNum.next = head;
+            head = newNum;
+            System.out.println("added first number");
+        }
+    }
+
+    public void addTail(int x) {
+        Node4 newNum = new Node4(); // eleman eklemek içinn
+        newNum.data = x;
+
+        if (head == null) {
+            newNum.next = null;
+            head = newNum;
+            tail = newNum;
+            System.out.println("create list and add first number:");
+        } else {
+            newNum.next = null;
+            tail.next = newNum; //added number 
+            tail = newNum; //update name
+            System.out.println("added number in last");
+
+        }
+
+    }
+
+    public void addBetween(int index, int x) {
+        Node4 newNum = new Node4(); // eleman eklemek içinn bellekte bir düğüm oluşturduk!!
+        newNum.data = x;
+
+        if (head == null && index == 0) {  //head boşsa eleman ilk indise yerleştirilir ve biz sıfırıncı indise istediğimiz elemanı atabilirz
+            newNum.next = null;
+            head = newNum;
+            tail = newNum;
+            System.out.println("create list and add first number:");
+        } else if (head != null && index == 0) { //liste yapımız var ama biz sıfırıncı indise eleman eklemek istersek
+            // başa eleman ekleme kuralını gerçekleştirdikk!!
+            newNum.next = head;
+            head = newNum;
+            System.out.println(index + "added number 0. index");
+        } else {
+            int n = 0;
+            Node4 temp = head; //temp aslında tail!
+            Node4 temp2 = head; //temp2 düğümü temp'ten önceki düğüm
+
+            while (temp.next != null) { //while döngüsüyle listede kaç eleman olduğunu bulcaz!!
+                n++; //bir sonraki düğüme geçmeden n yi arttır
+                temp = temp.next; // şu an temp son elemanı tutan düğüm durumunda
+            }
+            if (n == index) { //sona ekleyeceğimiz anlamına gelir!
+                temp2.next = newNum;
+                newNum.next = temp;
+                System.out.println("added newNum");
+            } else { // ARAYA eleman ekleme durumu
+                temp = head; //burdaki temp araya eklenecek elemanın sağındaki eleman 
+                temp2 = head; // temp2  de araya eklenecek sayının solundaki eleman!
+
+                int i = 0;
+                while (i != index) {
+                    temp2 = temp;
+                    temp = temp.next;
+                    i++;
+
+                }
+                temp2.next = newNum; //bağlama işlemi
+                newNum.next = temp;
+                System.out.println(index + "added newNum .index");
+            }
+        }
+
+    }
+
+    public void print() {
+
+        if (head == null) {
+            System.out.println("list is empty");
+        } else {
+            Node4 temp = head;
+
+            while (temp != null) {
+                System.out.println(temp.data);
+                temp = temp.next;
+            }
+
+        }
+    }
+}
